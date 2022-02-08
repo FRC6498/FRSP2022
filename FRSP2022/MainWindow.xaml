@@ -43,7 +43,7 @@
                 <TextBlock x:Name="AutoTitle" Text="Auto" FontSize="36" Grid.ColumnSpan="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50"/>
                 <!-- Tarmac Line -->
                 <TextBlock x:Name="AutoLineLabel" Text=" Exited Tarmac?" FontSize="24" Grid.Row="1" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
-                <CheckBox x:Name="chkTarmac" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" IsChecked="{Binding AutoLine}">
+                <CheckBox x:Name="chkTarmac" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" IsChecked="{Binding AutoLine, Mode=TwoWay}">
                     <CheckBox.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform ScaleX="3" ScaleY="3"/>
@@ -67,7 +67,7 @@
                         <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
                     <Button x:Name="btnAutoUpperCargoIncrement" Grid.Column="0" Grid.Row="1" FontSize="18" Click="UpdateCounter_Click">+</Button>
-                    <TextBlock x:Name="txtAutoUpperCount" Grid.Row="1" Grid.Column="1" Text="{Binding AutoUpperCargo}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
+                    <TextBlock x:Name="txtAutoUpperCount" Grid.Row="1" Grid.Column="1" Text="{Binding AutoUpperCargo, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
                     <Button x:Name="btnAutoUpperCargoDecrement" Grid.Column="2" Grid.Row="1" FontSize="18" Click="UpdateCounter_Click">-</Button>
                 </Grid>
                 <!--Auto Lower Cargo-->
@@ -83,7 +83,7 @@
                         <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
                     <Button x:Name="btnAutoLowerCargoIncrement" Grid.Column="0" Grid.Row="1" FontSize="18" Click="UpdateCounter_Click">+</Button>
-                    <TextBlock x:Name="txtAutoLowerCount" Grid.Row="1" Grid.Column="1" Text="{Binding AutoLowerCargo}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
+                    <TextBlock x:Name="txtAutoLowerCount" Grid.Row="1" Grid.Column="1" Text="{Binding AutoLowerCargo, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
                     <Button x:Name="btnAutoLowerCargoDecrement" Grid.Column="2" Grid.Row="1" FontSize="18" Click="UpdateCounter_Click">-</Button>
                 </Grid>
                 <TextBlock x:Name="AutoLowerLabel" FontSize="24" Grid.Row="3" Grid.Column="0" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center">Lower Cargo<LineBreak/>Scored</TextBlock>
@@ -119,7 +119,7 @@
                         <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
                     <Button x:Name="btnTeleopLowerCargoIncrement" Grid.Column="0" Grid.Row="1" FontSize="18" Click="UpdateCounter_Click">+</Button>
-                    <TextBlock x:Name="txtTeleopLowerCount" Grid.Row="1" Grid.Column="1" Text="{Binding TeleopLowerCargo, NotifyOnTargetUpdated=True}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
+                    <TextBlock x:Name="txtTeleopLowerCount" Grid.Row="1" Grid.Column="1" Text="{Binding TeleopLowerCargo, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
                     <Button x:Name="btnTeleopLowerCargoDecrement" Grid.Column="2" Grid.Row="1" FontSize="18" Click="UpdateCounter_Click">-</Button>
                 </Grid>
 
@@ -150,7 +150,7 @@
                         <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
                     <ComboBox x:Name="cboRungSelector" Grid.Row="1" 
-                              ItemsSource="{Binding Source={local:EnumBindingSource {x:Type local:HangarRung}}}" FontSize="24"/>
+                              ItemsSource="{Binding Path=HangarRung, Mode=TwoWay, Source={local:EnumBindingSource {x:Type local:HangarRung}}}" FontSize="24"/>
                 </Grid>
                 
                 <!-- Cargo Bonus -->

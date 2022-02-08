@@ -13,7 +13,8 @@ namespace FRSP2022
     public class CSVExporter
     {
         private static readonly string header = "TeamNumber,StartPosition,AutoLine,AutoLower,AutoUpper,TeleopLower,TeleopUpper,HangarRung,CargoBonus,HangarBonus";
-        private static readonly string eventFilePath = Path.Combine(new DirectoryInfo(new FileInfo(Assembly.GetExecutingAssembly().Location).FullName).Parent.Parent.Parent.Parent.Parent.FullName, "matchResults.csv");
+        private static readonly string eventFilePath = @"C:\Users\DeltaDizzy\Documents\Robotics\FRSP2022\Publish\matchResults.csv";
+            //Path.Combine(new DirectoryInfo(new FileInfo(Assembly.GetEntryAssembly().Location).FullName).Parent.FullName, "matchResults.csv");
         public static void Export(RobotModel robot)
         {
             // append current record to file
