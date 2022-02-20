@@ -1,17 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace FRSP2022
 {
@@ -20,7 +12,6 @@ namespace FRSP2022
     /// </summary>
     public partial class MainWindow : Window
     {
-        RobotContext context = new RobotContext();
         RobotModel robot = new();
         public MainWindow()
         {
@@ -30,7 +21,7 @@ namespace FRSP2022
 
         private void ScoutingPage_KeyDown(object sender, KeyEventArgs e)
         {
-            switch(e.Key)
+            switch (e.Key)
             {
                 case Key.Escape:
                     OnAppClose();
@@ -50,8 +41,6 @@ namespace FRSP2022
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
-            //context.Add(robot);
-            //context.SaveChanges();
             CSVExporter.Export(robot);
         }
 

@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="FRSP 2022 | Team TBA" Height="409" Width="800"
         WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Maximized" KeyDown="ScoutingPage_KeyDown">
-    <Grid x:Name="grdTop">
+
+    <Grid x:Name="grdTop" Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
@@ -37,7 +38,8 @@
                 <!-- <Border x:Name="TarmacBorder" BorderThickness="1" BorderBrush="Black" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"/>
                 <Border x:Name="AutoLowerBorder" BorderThickness="1" BorderBrush="Black" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"/>
                 <Border x:Name="AutoUpperBorder" BorderThickness="1" BorderBrush="Black" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2"/>
-               --> <Border x:Name="AutoGroupBorder" BorderThickness="1" BorderBrush="Black" Grid.ColumnSpan="3" Grid.RowSpan="4"/>
+               -->
+                <Border x:Name="AutoGroupBorder" BorderThickness="1" BorderBrush="Black" Grid.ColumnSpan="3" Grid.RowSpan="4"/>
                 <Border x:Name="AutoLabelBorder" BorderThickness="1" BorderBrush="Black" Grid.ColumnSpan="3"/>
                 <!-- Auto Panel -->
                 <TextBlock x:Name="AutoTitle" Text="Auto" FontSize="36" Grid.ColumnSpan="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50"/>
@@ -66,9 +68,9 @@
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
-                    <Button x:Name="btnAutoUpperCargoIncrement" Grid.Column="0" Grid.Row="1" FontSize="18" Click="UpdateCounter_Click">+</Button>
+                    <Button x:Name="btnAutoUpperCargoIncrement" Grid.Column="2" Grid.Row="1" FontSize="36" Click="UpdateCounter_Click">+</Button>
                     <TextBlock x:Name="txtAutoUpperCount" Grid.Row="1" Grid.Column="1" Text="{Binding AutoUpperCargo, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
-                    <Button x:Name="btnAutoUpperCargoDecrement" Grid.Column="2" Grid.Row="1" FontSize="18" Click="UpdateCounter_Click">-</Button>
+                    <Button x:Name="btnAutoUpperCargoDecrement" Grid.Column="0" Grid.Row="1" FontSize="36" Click="UpdateCounter_Click">-</Button>
                 </Grid>
                 <!--Auto Lower Cargo-->
                 <Grid x:Name="grdAutoLowerCargo" Grid.Column="1" Grid.Row="3">
@@ -82,9 +84,9 @@
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
-                    <Button x:Name="btnAutoLowerCargoIncrement" Grid.Column="0" Grid.Row="1" FontSize="18" Click="UpdateCounter_Click">+</Button>
+                    <Button x:Name="btnAutoLowerCargoIncrement" Grid.Column="2" Grid.Row="1" FontSize="36" Click="UpdateCounter_Click">+</Button>
                     <TextBlock x:Name="txtAutoLowerCount" Grid.Row="1" Grid.Column="1" Text="{Binding AutoLowerCargo, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
-                    <Button x:Name="btnAutoLowerCargoDecrement" Grid.Column="2" Grid.Row="1" FontSize="18" Click="UpdateCounter_Click">-</Button>
+                    <Button x:Name="btnAutoLowerCargoDecrement" Grid.Column="0" Grid.Row="1" FontSize="36" Click="UpdateCounter_Click">-</Button>
                 </Grid>
                 <TextBlock x:Name="AutoLowerLabel" FontSize="24" Grid.Row="3" Grid.Column="0" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center">Lower Cargo<LineBreak/>Scored</TextBlock>
             </Grid>
@@ -104,7 +106,8 @@
                 </Grid.RowDefinitions>
                 <Border x:Name="TeleopGroupBorder" BorderThickness="1" BorderBrush="Black" Grid.ColumnSpan="5" Grid.RowSpan="1"/>
                 <!-- Teleop -->
-                <TextBlock x:Name="TeleopLabel" Grid.ColumnSpan="6" Text="Teleop" FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="TeleopLabel" Grid.ColumnSpan="4" Text="Teleop" FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Button Grid.Column="4" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center">Notes</Button>
                 <!-- Lower Cargo -->
                 <TextBlock x:Name="TeleopLowerCargoLabel" Grid.Column="0" Grid.Row="1" Text="Lower Cargo" FontSize="24" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
                 <Grid x:Name="grdTeleopLowerCargo" Grid.Column="1" Grid.Row="1">
@@ -118,9 +121,9 @@
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
-                    <Button x:Name="btnTeleopLowerCargoIncrement" Grid.Column="0" Grid.Row="1" FontSize="18" Click="UpdateCounter_Click">+</Button>
+                    <Button x:Name="btnTeleopLowerCargoIncrement" Grid.Column="2" Grid.Row="1" FontSize="36" Click="UpdateCounter_Click">+</Button>
                     <TextBlock x:Name="txtTeleopLowerCount" Grid.Row="1" Grid.Column="1" Text="{Binding TeleopLowerCargo, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
-                    <Button x:Name="btnTeleopLowerCargoDecrement" Grid.Column="2" Grid.Row="1" FontSize="18" Click="UpdateCounter_Click">-</Button>
+                    <Button x:Name="btnTeleopLowerCargoDecrement" Grid.Column="0" Grid.Row="1" FontSize="36" Click="UpdateCounter_Click">-</Button>
                 </Grid>
 
                 <!-- Teleop Upper Cargo -->
@@ -136,11 +139,11 @@
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
-                    <Button x:Name="btnTeleopUpperCargoIncrement" Grid.Column="0" Grid.Row="1" FontSize="18" Click="UpdateCounter_Click">+</Button>
+                    <Button x:Name="btnTeleopUpperCargoIncrement" Grid.Column="2" Grid.Row="1" FontSize="36" Click="UpdateCounter_Click">+</Button>
                     <TextBlock x:Name="txtTeleopUpperCount" Grid.Row="1" Grid.Column="1" Text="{Binding TeleopUpperCargo, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
-                    <Button x:Name="btnTeleopUpperCargoDecrement" Grid.Column="2" Grid.Row="1" FontSize="18" Click="UpdateCounter_Click">-</Button>
+                    <Button x:Name="btnTeleopUpperCargoDecrement" Grid.Column="0" Grid.Row="1" FontSize="36" Click="UpdateCounter_Click">-</Button>
                 </Grid>
-                
+
                 <!-- Rung Reached -->
                 <TextBlock x:Name="TeleopHangarRungLabel" Grid.Column="0" Grid.Row="3" Text="Hangar Rung" FontSize="24" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
                 <Grid x:Name="grdHangarSelector" Grid.Row="3" Grid.Column="1">
@@ -150,9 +153,9 @@
                         <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
                     <ComboBox x:Name="cboRungSelector" Grid.Row="1" 
-                              ItemsSource="{Binding Path=HangarRung, Mode=TwoWay, Source={local:EnumBindingSource {x:Type local:HangarRung}}}" FontSize="24"/>
+                              ItemsSource="{Binding Source={local:EnumBindingSource {x:Type local:HangarRung}}}" FontSize="24"/>
                 </Grid>
-                
+
                 <!-- Cargo Bonus -->
                 <TextBlock x:Name="TeleopCargoBonusLabel" Grid.Column="3" Grid.Row="1" Text="Cargo Bonus" FontSize="24" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
                 <CheckBox x:Name="chkCargoBonus" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" IsChecked="{Binding CargoBonus}">
@@ -165,7 +168,7 @@
                         </TransformGroup>
                     </CheckBox.RenderTransform>
                 </CheckBox>
-                
+
                 <!-- Hangar Bonus -->
                 <TextBlock x:Name="TeleopHangarBonusLabel" Grid.Column="3" Grid.Row="2" Text="Hangar Bonus" FontSize="24" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
                 <CheckBox x:Name="chkHangarBonus" Grid.Row="2" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" IsChecked="{Binding HangarBonus}">
@@ -178,7 +181,7 @@
                         </TransformGroup>
                     </CheckBox.RenderTransform>
                 </CheckBox>
-                
+
                 <!-- Team Position-->
                 <Grid x:Name="grdMisc" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2">
                     <Grid.RowDefinitions>
@@ -194,7 +197,7 @@
                     <!-- Team Number -->
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="24">Team #</TextBlock>
                     <TextBox x:Name="txtTeamNumber" Grid.Column="1" Grid.Row="0" BorderBrush="Black" FontSize="24" TextAlignment="Center" Text="{Binding TeamNumber}"/>
-                    
+
                     <!-- Start Position -->
                     <TextBlock Text="Start Area" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Grid.Row="1" FontSize="24"/>
                     <ComboBox x:Name="cboStartSelector" Grid.Row="1" Grid.Column="1"
