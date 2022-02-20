@@ -1,20 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.IO;
 
 namespace FRSP2022
 {
     public class CSVExporter
     {
         private static readonly string header = "TeamNumber,StartPosition,AutoLine,AutoLower,AutoUpper,TeleopLower,TeleopUpper,HangarRung,CargoBonus,HangarBonus";
-        private static readonly string eventFilePath = @"C:\Users\DeltaDizzy\Documents\Robotics\FRSP2022\Publish\matchResults.csv";
-            //Path.Combine(new DirectoryInfo(new FileInfo(Assembly.GetEntryAssembly().Location).FullName).Parent.FullName, "matchResults.csv");
+        private static readonly string eventFilePath = @"C:\6498\matchResults.csv";
+        //Path.Combine(new DirectoryInfo(new FileInfo(Assembly.GetEntryAssembly().Location).FullName).Parent.FullName, "matchResults.csv");
         public static void Export(RobotModel robot)
         {
             // append current record to file
