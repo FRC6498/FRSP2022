@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FRSP2022.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace FRSP2022
 {

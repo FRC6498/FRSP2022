@@ -4,9 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FRSP2022"
+        xmlns:model="clr-namespace:FRSP2022.Model"
         mc:Ignorable="d"
         Title="FRSP 2022 | Team TBA" Height="409" Width="800"
         WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Maximized" KeyDown="ScoutingPage_KeyDown">
+    <Window.Resources>
+        <local:EnumValueConverter x:Key="descConverter"/>
+    </Window.Resources>
 
     <Grid x:Name="grdTop" Background="White">
         <Grid.RowDefinitions>
@@ -14,7 +18,7 @@
         </Grid.RowDefinitions>
         <Grid x:Name="grdMatchData">
             <Grid.DataContext>
-                <local:RobotModel/>
+                <model:RobotModel/>
             </Grid.DataContext>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
@@ -107,7 +111,7 @@
                 <Border x:Name="TeleopGroupBorder" BorderThickness="1" BorderBrush="Black" Grid.ColumnSpan="5" Grid.RowSpan="1"/>
                 <!-- Teleop -->
                 <TextBlock x:Name="TeleopLabel" Grid.ColumnSpan="4" Text="Teleop" FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Button Grid.Column="4" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center">Notes</Button>
+                <Button x:Name="btnNotes" Grid.Column="4" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btnNotes_Click">Notes</Button>
                 <!-- Lower Cargo -->
                 <TextBlock x:Name="TeleopLowerCargoLabel" Grid.Column="0" Grid.Row="1" Text="Lower Cargo" FontSize="24" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
                 <Grid x:Name="grdTeleopLowerCargo" Grid.Column="1" Grid.Row="1">
@@ -153,7 +157,7 @@
                         <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
                     <ComboBox x:Name="cboRungSelector" Grid.Row="1" 
-                              ItemsSource="{Binding Source={local:EnumBindingSource {x:Type local:HangarRung}}}" FontSize="24"/>
+                              ItemsSource="{Binding Source={local:EnumBindingSource {x:Type model:HangarRung}}}" SelectedItem="{Binding HangarRung, Mode=TwoWay}" FontSize="24"/>
                 </Grid>
 
                 <!-- Cargo Bonus -->
@@ -196,12 +200,18 @@
                     <Border x:Name="MiscGroupBorder" BorderThickness="1" BorderBrush="Black" Grid.ColumnSpan="2" Grid.RowSpan="4"/>
                     <!-- Team Number -->
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="24">Team #</TextBlock>
-                    <TextBox x:Name="txtTeamNumber" Grid.Column="1" Grid.Row="0" BorderBrush="Black" FontSize="24" TextAlignment="Center" Text="{Binding TeamNumber}"/>
+                    <TextBox x:Name="txtTeamNumber" Grid.Column="1" Grid.Row="0" BorderBrush="Black" FontSize="24" TextAlignment="Center" Text="{Binding TeamNumber, StringFormat=\{\}\{0:#.#0\}}"/>
 
                     <!-- Start Position -->
                     <TextBlock Text="Start Area" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Grid.Row="1" FontSize="24"/>
                     <ComboBox x:Name="cboStartSelector" Grid.Row="1" Grid.Column="1"
-                              ItemsSource="{Binding Source={local:EnumBindingSource {x:Type local:StartPosition}}}" FontSize="24"/>
+                              ItemsSource="{Binding Source={local:EnumBindingSource {x:Type model:StartPosition}}}" FontSize="24" SelectedItem="{Binding StartPos, Mode=TwoWay}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Converter={StaticResource descConverter}}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
                     <Button x:Name="btnSubmit" Grid.Row="2" Grid.ColumnSpan="2" FontSize="24" Content="Submit" Click="btnSubmit_Click"/>
                 </Grid>
             </Grid>

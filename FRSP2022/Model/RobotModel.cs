@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace FRSP2022
+namespace FRSP2022.Model
 {
     public partial class RobotModel : INotifyPropertyChanged
     {
@@ -16,6 +16,7 @@ namespace FRSP2022
         private bool hangarBonus = false;
         private int teamNumber;
         private StartPosition startPos;
+        private string notes = "";
 
         // properties determined by 2022 game manual
         #region Autonomous
@@ -38,6 +39,8 @@ namespace FRSP2022
         #region Misc
         public int TeamNumber { get => teamNumber; set { teamNumber = value; NotifyPropertyChanged(); } }
         public StartPosition StartPos { get => startPos; set { startPos = value; NotifyPropertyChanged(); } }
+
+        public string Notes { get => notes; set { notes = value; NotifyPropertyChanged(); } }
         #endregion
 
         public event PropertyChangedEventHandler? PropertyChanged;
@@ -61,7 +64,7 @@ namespace FRSP2022
             model.HangarRung = (HangarRung)Enum.Parse(typeof(HangarRung), segments[7]);
             model.CargoBonus = bool.Parse(segments[8]);
             model.HangarBonus = bool.Parse(segments[9]);
-
+            model.notes = segments[10];
             return model;
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FRSP2022.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -13,6 +14,7 @@ namespace FRSP2022
     public partial class MainWindow : Window
     {
         RobotModel robot = new();
+        NotesWindow notesPage;
         public MainWindow()
         {
             InitializeComponent();
@@ -42,6 +44,10 @@ namespace FRSP2022
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
             CSVExporter.Export(robot);
+            // reset
+            StartPosition pos = robot.StartPos;
+            robot = new RobotModel();
+            robot.StartPos = pos;
         }
 
         private void UpdateCounter_Click(object sender, RoutedEventArgs e)
@@ -74,6 +80,12 @@ namespace FRSP2022
                 collection.Add(element);
             }
             return collection;
+        }
+
+        private void btnNotes_Click(object sender, RoutedEventArgs e)
+        {
+            notesPage = new NotesWindow(robot);
+            notesPage.Show();
         }
     }
 }
