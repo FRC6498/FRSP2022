@@ -26,11 +26,12 @@ namespace FRSP2022
             InitializeComponent();
             DataContext = this.robot;
             this.robot = robot;
+            txtNotes.Focus();
         }
 
         private void btnDone_Click(object sender, RoutedEventArgs e)
         {
-            robot.Notes = txtNotes.Text;
+            robot.Notes = txtNotes.Text.ReplaceLineEndings().Replace(Environment.NewLine, " ");
             Close();
         }
     }

@@ -18,7 +18,7 @@
             <model:RobotModel/>
         </Grid.DataContext>
         <TextBlock FontSize="36" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">Notes</TextBlock>
-        <TextBox x:Name="txtNotes" Grid.Row="1" Text="{Binding Notes, Mode=TwoWay}"/>
+        <TextBox x:Name="txtNotes" Grid.Row="1" Text="{Binding Notes, Mode=TwoWay}" FontSize="24" AcceptsReturn="True" AcceptsTab="True"/>
         <Button x:Name="btnDone" Grid.Row="2" FontSize="24" Click="btnDone_Click">Done</Button>
     </Grid>
 </Window>
