@@ -1,12 +1,15 @@
 ﻿using FRSP2022.Model;
 using System.IO;
+using System.Reflection;
+using System.Windows;
 
 namespace FRSP2022
 {
     public class CSVExporter
     {
         private static readonly string header = "TeamNumber,StartPosition,AutoLine,AutoLower,AutoUpper,TeleopLower,TeleopUpper,HangarRung,CargoBonus,HangarBonus,Notes";
-        private static readonly string eventFilePath = @"C:\6498\matchResults.csv";
+        //private static readonly string eventFilePath = @"C:\6498\matchResults.csv";
+        private static readonly string eventFilePath = Path.Combine(Path.GetDirectoryName(Assembly.GetAssembly(typeof(CSVExporter)).Location), @"\matchResults.csv");
         //Path.Combine(new DirectoryInfo(new FileInfo(Assembly.GetEntryAssembly().Location).FullName).Parent.FullName, "matchResults.csv");
         public static void Export(RobotModel robot)
         {

@@ -35,8 +35,6 @@ namespace FRSP2022
 
         private void OnAppClose()
         {
-            // dump local db
-            // dump main db
             // close app
             Application.Current.Shutdown();
         }
